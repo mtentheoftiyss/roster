@@ -1,0 +1,22 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "base"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Private Sub Worksheet_Change(ByVal target As Range)
+    '行列選択による変更は無視
+    If commonUtil.isRowSelect(target) Or commonUtil.isColumnSelect(target) Then
+        Exit Sub
+    End If
+
+    '休日の行の背景色を変更
+    Call setHoliday.setHoliday(target)
+    
+    '勤務時間を計算
+    Call calcWorkTime.calcWorkTime(target)
+End Sub
+
