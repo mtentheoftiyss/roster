@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-test1
-=======
-test2
->>>>>>> sub2
+test3
